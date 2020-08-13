@@ -1,28 +1,33 @@
-const express = require("express");
-const mongojs = require("mongojs");
-const logger = require("morgan");
-const path = require("path");
+const express = require('express');
+// const mongojs = require('mongojs');
+const mongoose = require('mongoose');
+const logger = require('morgan');
+const path = require('path');
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.use(logger("dev"));
+app.use(logger('dev'));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 
-const databaseUrl = "notetaker";
-const collections = ["notes"];
-
-const db = mongojs(databaseUrl, collections);
-
-db.on("error", error => {
-  console.log("Database Error:", error);
+/* from 17.26 */ 
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/xxxxx', {
+  useNewUrlParser: true,
+  useFindAndModify: false
 });
 
-// add more
+/* routes folder */
+app.use(require('./routes/route-api.js'));
+app.use(require('./routes/route-html.js'));
 
-app.listen(3000, () => {
-  console.log("App running on port 3000!");
+db.on('error', error => {
+  console.log('Database Error:', error);
+});
+
+app.listen(PORT, () => {
+  console.log('App running on port 3000!');
 });
