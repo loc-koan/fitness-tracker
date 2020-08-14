@@ -1,4 +1,4 @@
-/* creation of the Fitness DB ; from activity 17.26 */ 
+/* creation of the DB ; from activity 17.26 */ 
 const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;

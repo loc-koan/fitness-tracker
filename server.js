@@ -15,7 +15,8 @@ app.use(express.json());
 app.use(express.static('public'));
 
 /* from 17.26 */ 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', { /* named DB*/
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', { 
+  /* named DB workout to match seed */
   useNewUrlParser: true,
   useFindAndModify: false
 });
@@ -24,9 +25,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', { /
 app.use(require('./routes/route-api.js'));
 app.use(require('./routes/route-html.js'));
 
-db.on('error', error => {
-  console.log('Database Error:', error);
-});
+// db.on('error', error => {
+//   console.log('Database Error:', error);
+// });
 
 app.listen(PORT, () => {
   console.log('App running on port 3000!');
