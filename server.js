@@ -15,7 +15,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 /* from 17.26 */ 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/xxxxx', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/fitnessDB', { /* named DB*/
   useNewUrlParser: true,
   useFindAndModify: false
 });

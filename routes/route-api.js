@@ -1,6 +1,7 @@
-const router = require("express");
-const Transaction = require("../models/transaction.js");
 
+const Fitness = require("../models/fitness.js");
+
+/* from 17.26*/
 // router.post("/api/transaction", ({ body }, res) => {
 //   Transaction.create(body)
 //     .then(dbTransaction => {
@@ -29,6 +30,18 @@ const Transaction = require("../models/transaction.js");
 //     })
 //     .catch(err => {
 //       res.status(400).json(err);
+//     });
+// });
+
+/* from 17.14 */ 
+// app.get("/populated", (req, res) => {
+//   db.Library.find({})
+//     .populate("books")
+//     .then(dbLibrary => {
+//       res.json(dbLibrary);
+//     })
+//     .catch(err => {
+//       res.json(err);
 //     });
 // });
 
