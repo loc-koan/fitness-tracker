@@ -1,48 +1,47 @@
+/* CRUD = put/post, get, put/post, delete = insert, find, update, delete */
+/* post used for inserts, put used for updating */ 
+/* referenced 17.14 */ 
 
-const Fitness = require("../models/fitness.js");
+const Fitness = require('../models/fitness.js');
 
-/* from 17.26*/
-// router.post("/api/transaction", ({ body }, res) => {
-//   Transaction.create(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
+module.exports = function (app) {
+  app.post('/api/workouts', (req, res) => {
+    Fitness.create(body)
+      .then(dbFitness => {
+        res.json(dbFitness);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 
-// router.post("/api/transaction/bulk", ({ body }, res) => {
-//   Transaction.insertMany(body)
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
+  app.get('/api/workouts', (req, res) => {
+    Fitness.find({})
+      .then(dbFitness => {
+        res.json(dbFitness);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
 
-// router.get("/api/transaction", (req, res) => {
-//   Transaction.find({})
-//     .sort({ date: -1 })
-//     .then(dbTransaction => {
-//       res.json(dbTransaction);
-//     })
-//     .catch(err => {
-//       res.status(400).json(err);
-//     });
-// });
+  app.put('/api/workouts/:id', (req, res) => {
+    Fitness.update();
+      // .then(dbFitness => {
+      //   res.json(dbFitness);
+      // })
+      // .catch(err => {
+      //   res.json(err);
+      // });
+  });
 
-/* from 17.14 */ 
-// app.get("/populated", (req, res) => {
-//   db.Library.find({})
-//     .populate("books")
-//     .then(dbLibrary => {
-//       res.json(dbLibrary);
-//     })
-//     .catch(err => {
-//       res.json(err);
-//     });
-// });
-
-module.exports = router;
+  app.get('/api/workouts/range', (req, res) => {
+    Fitness.find({})
+      .then(dbFitness => {
+        res.json(dbFitness);
+      })
+      .catch(err => {
+        res.json(err);
+      });
+  });
+};
