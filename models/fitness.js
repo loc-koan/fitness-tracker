@@ -35,8 +35,8 @@ const fitnessSchema = new Schema({
     }],
     date: {
         type: Date,
-        default: Date.now
-  }
+        default: Date.now,
+    }
 });
 
 const Fitness = mongoose.model('Fitness', fitnessSchema);

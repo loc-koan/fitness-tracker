@@ -6,7 +6,7 @@ const Fitness = require('../models/fitness.js');
 
 module.exports = function (app) {
 
-  app.get('/api/workouts', (req, res) => {
+  router.app.get('/api/workouts', (req, res) => {
     Fitness.find({})
       .then(dbFitness => {
         res.json(dbFitness);
@@ -16,7 +16,7 @@ module.exports = function (app) {
       });
   });
   
-  app.post('/api/workouts', (req, res) => {
+  router.app.post('/api/workouts', (req, res) => {
     Fitness.create(body)
       .then(dbFitness => {
         res.json(dbFitness);
@@ -26,7 +26,7 @@ module.exports = function (app) {
       });
   });
 
-  app.put('/api/workouts/:id', (req, res) => {
+  router.app.put('/api/workouts/:id', (req, res) => {
     Fitness.update();
       // .then(dbFitness => {
       //   res.json(dbFitness);
@@ -36,7 +36,7 @@ module.exports = function (app) {
       // });
   });
 
-  app.get('/api/workouts/range', (req, res) => {
+  router.app.get('/api/workouts/range', (req, res) => {
     Fitness.find({})
       .then(dbFitness => {
         res.json(dbFitness);
@@ -48,4 +48,4 @@ module.exports = function (app) {
 
 };
 
-module.exports = router
+module.exports = router;
