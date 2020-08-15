@@ -8,6 +8,7 @@ const Fitness = require('../models/fitness.js');
 // module.exports = function (app) {
 
   router.get('/api/workouts', (req, res) => {
+    console.log('get');
     Fitness.find({})
       .then(dbFitness => {
         res.json(dbFitness);
@@ -18,8 +19,8 @@ const Fitness = require('../models/fitness.js');
   });
   
   router.post('/api/workouts', (req, res) => {
-    console.log(req);
-    Fitness.create({})
+    console.log(req.body);
+    Fitness.create(req.body)
       .then(dbFitness => {
         res.status(200).json(dbFitness);
       })
@@ -29,13 +30,16 @@ const Fitness = require('../models/fitness.js');
   });
 
   router.put('/api/workouts/:id', (req, res) => {
-    Fitness.update({});
-      // .then(dbFitness => {
-      //   res.json(dbFitness);
-      // })
-      // .catch(err => {
-      //   res.json(err);
-      // });
+    console.log(req.params);
+    console.log(req.body);
+    Fitness.findByIdAndUpdate(req.params.id, {$push: {exercises: req.body}},
+      {new: true, runValidators: true})
+      .then(dbFitness => {
+        res.json(dbFitness);
+      })
+      .catch(err => {
+        res.json(err);
+      });
   });
 
   router.get('/api/workouts/range', (req, res) => {
