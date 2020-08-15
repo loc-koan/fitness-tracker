@@ -33,10 +33,11 @@ const fitnessSchema = new Schema({
             type: Number,
         },
     }],
-    date: {
+    day: {
         type: Date,
         default: Date.now,
-    }
+    },
+    // toJSON: {virtuals:true},
 });
 
 const Fitness = mongoose.model('Fitness', fitnessSchema);

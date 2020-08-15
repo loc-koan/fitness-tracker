@@ -19,9 +19,9 @@ const Fitness = require('../models/fitness.js');
   
   router.post('/api/workouts', (req, res) => {
     console.log(req);
-    Fitness.create(body)
+    Fitness.create({})
       .then(dbFitness => {
-        res.json(dbFitness);
+        res.status(200).json(dbFitness);
       })
       .catch(err => {
         res.json(err);
