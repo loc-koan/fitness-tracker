@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 // const mongojs = require('mongojs');
 const mongoose = require('mongoose');
@@ -14,12 +15,18 @@ app.use(express.json());
 
 app.use(express.static('public'));
 
-/* from 17.26 */ 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', { 
-  /* named DB workout to match seed */
-  useNewUrlParser: true,
-  useFindAndModify: false
-});
+/* original connection */ 
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/workout', { 
+//   useNewUrlParser: true,
+//   useFindAndModify: false
+// });
+
+/* from brandon's video - mongo atlas installation */ 
+let uri = 'mongodb://localhost/workout';
+if (process.env.NODE_ENV === 'production') {
+  uri = process.env.MONGODB_URI;
+}
+mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 /* routes folder */
 app.use(require('./routes/route-api.js'));
