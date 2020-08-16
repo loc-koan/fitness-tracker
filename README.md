@@ -6,7 +6,7 @@ This application is a full-stack workout tracker.  The user can select the Exerc
 
 ## Live:
 
-- [Heroku](xxxxx)
+- [Heroku](https://quiet-plains-57341.herokuapp.com/)
 
 ## Key Features:
 
@@ -19,12 +19,12 @@ This application is a full-stack workout tracker.  The user can select the Exerc
 ## Links:
 
 - [GitHub](https://github.com/loc-koan/fitness-tracker)
-- [Heroku](xxxxx)
+- [Heroku](https://quiet-plains-57341.herokuapp.com/)
 
 ## Installation
 
 - Clone the repository at [GitHub](https://github.com/loc-koan/fitness-tracker) to view its code
-- Visit [Heroku](xxxxx) to see live application
+- Visit [Heroku](https://quiet-plains-57341.herokuapp.com/) to see live application
 
 ## Credits
 
