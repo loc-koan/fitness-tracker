@@ -20,6 +20,7 @@ const Fitness = require('../models/fitness.js');
   
   router.post('/api/workouts', (req, res) => {
     console.log(req.body);
+    console.log('post');
     Fitness.create(req.body)
       .then(dbFitness => {
         res.status(200).json(dbFitness);
