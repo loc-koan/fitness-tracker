@@ -23,9 +23,9 @@ app.use(express.static('public'));
 
 /* from brandon's video - mongo atlas installation */ 
 let uri = 'mongodb://localhost/workouts';
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
   uri = process.env.MONGODB_URI;
-}
+// }
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
 /* routes folder */
